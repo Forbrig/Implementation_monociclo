@@ -16,6 +16,7 @@ entity controle is
 		Jump: out std_logic;
 		BNE: out std_logic;
 		JAL: out std_logic
+		
 	);
 end entity;	
 

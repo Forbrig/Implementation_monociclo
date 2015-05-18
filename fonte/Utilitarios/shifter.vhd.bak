@@ -17,7 +17,7 @@ signal a: std_logic_vector(31 downto 0);
 begin
 	process(In1)
 	begin
-		a(31 downto 2) <= In1(29 downto 0);
+		a(31 downto 2) <= In1(31 downto 2);
 		a(1 downto 0) <= "00";
 	end process;
 	saida <= a;

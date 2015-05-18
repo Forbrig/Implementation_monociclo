@@ -1,0 +1,612 @@
+m255
+K4
+z2
+13
+!s112 1.1
+!i10d 8192
+!i10e 25
+!i10f 100
+cModel Technology
+dC:/Modeltech_pe_edu_10.4a/examples
+Ealucontrol
+Z0 w1431875590
+Z1 DPx4 ieee 18 std_logic_unsigned 0 22 ;eZjO2D4ZDz<]0>8AL<ne1
+Z2 DPx4 ieee 15 std_logic_arith 0 22 [G314=:2zXJ`VORJe1J@Z1
+Z3 DPx3 std 6 textio 0 22 zE1`LPoLg^DX3Oz^4Fj1K3
+Z4 DPx4 ieee 14 std_logic_1164 0 22 eNV`TJ_GofJTzYa?f<@Oe1
+Z5 dC:/Users/Marco/Desktop/PROJETOMIPS
+Z6 8C:/Users/Marco/Desktop/PROJETOMIPS/ULA/AluControl.vhd
+Z7 FC:/Users/Marco/Desktop/PROJETOMIPS/ULA/AluControl.vhd
+l0
+L6
+VCWnXDcmi^<LZzllY;b3052
+!s100 SO41PR3NlRiCdG3i`8d`G2
+Z8 OP;C;10.4a;61
+32
+Z9 !s110 1431945949
+!i10b 1
+Z10 !s108 1431945949.000000
+Z11 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|C:/Users/Marco/Desktop/PROJETOMIPS/ULA/AluControl.vhd|
+Z12 !s107 C:/Users/Marco/Desktop/PROJETOMIPS/ULA/AluControl.vhd|
+!i113 1
+Z13 o-work work -2002 -explicit -O0
+Z14 tExplicit 1
+Aalucontrolalg
+R1
+R2
+R3
+R4
+DEx4 work 10 alucontrol 0 22 CWnXDcmi^<LZzllY;b3052
+l16
+L14
+VEal:>6fKnKkJmcSljDBGg0
+!s100 fdeOiMP`P^>Uk5][=P=6K1
+R8
+32
+R9
+!i10b 1
+R10
+R11
+R12
+!i113 1
+R13
+R14
+Eb_registradores
+Z15 w1431907160
+R1
+R2
+R3
+R4
+R5
+Z16 8C:/Users/Marco/Desktop/PROJETOMIPS/Registradores/B_Registradores.vhd
+Z17 FC:/Users/Marco/Desktop/PROJETOMIPS/Registradores/B_Registradores.vhd
+l0
+L6
+Va7hGXJe23]U[2G0mFR3i@3
+!s100 lVGE21GzHWmbW6miBoMNE2
+R8
+32
+Z18 !s110 1431954403
+!i10b 1
+Z19 !s108 1431954403.000000
+Z20 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|C:/Users/Marco/Desktop/PROJETOMIPS/Registradores/B_Registradores.vhd|
+Z21 !s107 C:/Users/Marco/Desktop/PROJETOMIPS/Registradores/B_Registradores.vhd|
+!i113 1
+R13
+R14
+Aarch_b_registradores
+R1
+R2
+R3
+R4
+DEx4 work 15 b_registradores 0 22 a7hGXJe23]U[2G0mFR3i@3
+l25
+L20
+VKmPb2mjodC@EzHN1I?JP?0
+!s100 idb4bX^OanC=?B;72[nmh2
+R8
+32
+R18
+!i10b 1
+R19
+R20
+R21
+!i113 1
+R13
+R14
+Econtrole
+Z22 w1431951112
+R2
+R3
+R4
+R5
+Z23 8C:/Users/Marco/Desktop/PROJETOMIPS/controle/controle.vhd
+Z24 FC:/Users/Marco/Desktop/PROJETOMIPS/controle/controle.vhd
+l0
+L5
+VX8Y<;TLVVj5zSkH=^`nj63
+!s100 U6Y>5aRIm9ZfPj7n`2X1I0
+R8
+32
+Z25 !s110 1431952299
+!i10b 1
+Z26 !s108 1431952298.000000
+Z27 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|C:/Users/Marco/Desktop/PROJETOMIPS/controle/controle.vhd|
+Z28 !s107 C:/Users/Marco/Desktop/PROJETOMIPS/controle/controle.vhd|
+!i113 1
+R13
+R14
+Aarch_controle
+R2
+R3
+R4
+DEx4 work 8 controle 0 22 X8Y<;TLVVj5zSkH=^`nj63
+l24
+L22
+VDjZb^9g>mA33]dd4?ok8X1
+!s100 hfF8WY4bIOCW1fod_f][?2
+R8
+32
+R25
+!i10b 1
+R26
+R27
+R28
+!i113 1
+R13
+R14
+Econtroleula
+Z29 w1431909894
+R1
+R2
+R3
+R4
+R5
+Z30 8C:/Users/Marco/Desktop/PROJETOMIPS/ULA/Controle_ULA.vhd
+Z31 FC:/Users/Marco/Desktop/PROJETOMIPS/ULA/Controle_ULA.vhd
+l0
+L6
+VlHzIUnZ3NTQajGM:mDXzS1
+!s100 :IGb5QP5eVhaA5nY;mi]g2
+R8
+32
+Z32 !s110 1431948500
+!i10b 1
+Z33 !s108 1431948500.000000
+Z34 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|C:/Users/Marco/Desktop/PROJETOMIPS/ULA/Controle_ULA.vhd|
+Z35 !s107 C:/Users/Marco/Desktop/PROJETOMIPS/ULA/Controle_ULA.vhd|
+!i113 1
+R13
+R14
+Aarch_controleula
+R1
+R2
+R3
+R4
+DEx4 work 11 controleula 0 22 lHzIUnZ3NTQajGM:mDXzS1
+l16
+L14
+VFg<iRe[^jc5CIjmgTa6l<2
+!s100 TjZMCQmZPHc3_kJ6CF5m30
+R8
+32
+R32
+!i10b 1
+R33
+R34
+R35
+!i113 1
+R13
+R14
+Edatamemory
+Z36 w1431918743
+R1
+R2
+R3
+R4
+R5
+Z37 8C:/Users/Marco/Desktop/PROJETOMIPS/Memória/MemData.vhd
+Z38 FC:/Users/Marco/Desktop/PROJETOMIPS/Memória/MemData.vhd
+l0
+L6
+Vz5eWAa^H6IGgh>;0hmhTQ1
+!s100 LBN[C1CEYO80REHKzSdHD1
+R8
+32
+R32
+!i10b 1
+R33
+Z39 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|C:/Users/Marco/Desktop/PROJETOMIPS/Memória/MemData.vhd|
+Z40 !s107 C:/Users/Marco/Desktop/PROJETOMIPS/Memória/MemData.vhd|
+!i113 1
+R13
+R14
+Aarch_datamemory
+R1
+R2
+R3
+R4
+DEx4 work 10 datamemory 0 22 z5eWAa^H6IGgh>;0hmhTQ1
+l20
+L16
+Vc?2gD3@a<59jaZCJkJ7Ea3
+!s100 ;LQg0mJhGVoUGO3FCbAU=1
+R8
+32
+R32
+!i10b 1
+R33
+R39
+R40
+!i113 1
+R13
+R14
+Eextender
+Z41 w1431899796
+R1
+R2
+R3
+R4
+R5
+Z42 8C:/Users/Marco/Desktop/PROJETOMIPS/utilitarios/extender.vhd
+Z43 FC:/Users/Marco/Desktop/PROJETOMIPS/utilitarios/extender.vhd
+l0
+L6
+V9d_HeD1^?oRzoF]VemS<O0
+!s100 YT7PE5=QXB8H1aMQ;eaI?1
+R8
+32
+R32
+!i10b 1
+R33
+Z44 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|C:/Users/Marco/Desktop/PROJETOMIPS/utilitarios/extender.vhd|
+Z45 !s107 C:/Users/Marco/Desktop/PROJETOMIPS/utilitarios/extender.vhd|
+!i113 1
+R13
+R14
+Aarch_extender
+R1
+R2
+R3
+R4
+DEx4 work 8 extender 0 22 9d_HeD1^?oRzoF]VemS<O0
+l15
+L14
+V?3SC4ga1j`3[75R?VzL]23
+!s100 H`kK=l>4BHbBSIA8bc>_33
+R8
+32
+R32
+!i10b 1
+R33
+R44
+R45
+!i113 1
+R13
+R14
+Einstructionmemory
+Z46 w1431917565
+R1
+R2
+R3
+R4
+R5
+Z47 8C:/Users/Marco/Desktop/PROJETOMIPS/Memória/MemInstruction.vhd
+Z48 FC:/Users/Marco/Desktop/PROJETOMIPS/Memória/MemInstruction.vhd
+l0
+L6
+VALE0g8i3<JaIcY1VO=mG00
+!s100 a6PJ[:foGf8jRd>Ka@5o<2
+R8
+32
+R32
+!i10b 1
+R33
+Z49 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|C:/Users/Marco/Desktop/PROJETOMIPS/Memória/MemInstruction.vhd|
+Z50 !s107 C:/Users/Marco/Desktop/PROJETOMIPS/Memória/MemInstruction.vhd|
+!i113 1
+R13
+R14
+Aarch_instructionmemory
+R1
+R2
+R3
+R4
+DEx4 work 17 instructionmemory 0 22 ALE0g8i3<JaIcY1VO=mG00
+l19
+L15
+V`HM:]eECRj7CPe`48D@BP0
+!s100 9o@DO@GIk:SR9`o82;Y`e0
+R8
+32
+R32
+!i10b 1
+R33
+R49
+R50
+!i113 1
+R13
+R14
+Emux2x1
+Z51 w1431952878
+R1
+R2
+R3
+R4
+R5
+Z52 8C:/Users/Marco/Desktop/PROJETOMIPS/MUX2x1/MUX2x15bits.vhd
+Z53 FC:/Users/Marco/Desktop/PROJETOMIPS/MUX2x1/MUX2x15bits.vhd
+l0
+L6
+VB>Ngbz`KBFibfchLE;N2H3
+!s100 >W?=O9eSP7fKQT1mLgZ]f1
+R8
+32
+Z54 !s110 1431953091
+!i10b 1
+Z55 !s108 1431953091.000000
+Z56 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|C:/Users/Marco/Desktop/PROJETOMIPS/MUX2x1/MUX2x15bits.vhd|
+Z57 !s107 C:/Users/Marco/Desktop/PROJETOMIPS/MUX2x1/MUX2x15bits.vhd|
+!i113 1
+R13
+R14
+Aarch_mux2x1
+R1
+R2
+R3
+R4
+DEx4 work 6 mux2x1 0 22 B>Ngbz`KBFibfchLE;N2H3
+l17
+L16
+VD35LPHkm5i3P8nSz4GHc^0
+!s100 `IY`zb0e@4ZHh:<mZLVRL0
+R8
+32
+R54
+!i10b 1
+R55
+R56
+R57
+!i113 1
+R13
+R14
+Emux2x15bits
+Z58 w1431953165
+R1
+R2
+R3
+R4
+R5
+R52
+R53
+l0
+L6
+V2D?BUU]zd@U_OdhA5:UKJ3
+!s100 fSV3FJ0D6=Qc<Cjoc?aB91
+R8
+32
+Z59 !s110 1431953394
+!i10b 1
+Z60 !s108 1431953394.000000
+R56
+R57
+!i113 1
+R13
+R14
+Aarch_mux2x15bits
+R1
+R2
+R3
+R4
+DEx4 work 11 mux2x15bits 0 22 2D?BUU]zd@U_OdhA5:UKJ3
+l17
+L16
+V=Um9[RCAb2a5]oVD]ZBCW0
+!s100 jMdGQUj:3OVPzoMX;ShCC0
+R8
+32
+R59
+!i10b 1
+R60
+R56
+R57
+!i113 1
+R13
+R14
+Epc
+Z61 w1431903355
+R1
+R2
+R3
+R4
+R5
+Z62 8C:/Users/Marco/Desktop/PROJETOMIPS/Registradores/PC.vhd
+Z63 FC:/Users/Marco/Desktop/PROJETOMIPS/Registradores/PC.vhd
+l0
+L6
+V6lC3CkO]_jg>mfZ@=Sa@b0
+!s100 END=dNeG7zAWMfjoah3@32
+R8
+32
+R32
+!i10b 1
+R33
+Z64 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|C:/Users/Marco/Desktop/PROJETOMIPS/Registradores/PC.vhd|
+Z65 !s107 C:/Users/Marco/Desktop/PROJETOMIPS/Registradores/PC.vhd|
+!i113 1
+R13
+R14
+Aarch_pc
+R1
+R2
+R3
+R4
+DEx4 work 2 pc 0 22 6lC3CkO]_jg>mfZ@=Sa@b0
+l16
+L15
+Veen>a9m7XNhofkLz@?>T73
+!s100 AGUK4]O[La[LX3[cU]3JP1
+R8
+32
+R32
+!i10b 1
+R33
+R64
+R65
+!i113 1
+R13
+R14
+Eprocessador
+Z66 w1431954393
+R1
+R2
+R3
+R4
+R5
+Z67 8C:/Users/Marco/Desktop/PROJETOMIPS/processador.vhd
+Z68 FC:/Users/Marco/Desktop/PROJETOMIPS/processador.vhd
+l0
+L6
+V9W9L1jR4USkehMNYjhd3F2
+!s100 VU=18T;O;InmTfdj>8]:E0
+R8
+32
+Z69 !s110 1431954408
+!i10b 1
+Z70 !s108 1431954408.000000
+Z71 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|C:/Users/Marco/Desktop/PROJETOMIPS/processador.vhd|
+Z72 !s107 C:/Users/Marco/Desktop/PROJETOMIPS/processador.vhd|
+!i113 1
+R13
+R14
+Aarch_processador
+R1
+R2
+R3
+R4
+Z73 DEx4 work 11 processador 0 22 9W9L1jR4USkehMNYjhd3F2
+l174
+L15
+V0d3^R4Md8[@dn7D;@X:GU0
+!s100 El7E9[:4S?6P5Q?GmGIR62
+R8
+32
+R69
+!i10b 1
+R70
+R71
+R72
+!i113 1
+R13
+R14
+Eshifter
+Z74 w1431947208
+R1
+Z75 DPx4 ieee 11 numeric_std 0 22 :ASDNFgHXf_ih3J@9F3Ze1
+R2
+R3
+R4
+R5
+Z76 8C:/Users/Marco/Desktop/PROJETOMIPS/utilitarios/shifter.vhd
+Z77 FC:/Users/Marco/Desktop/PROJETOMIPS/utilitarios/shifter.vhd
+l0
+L7
+VCZn8cNCa?ijjbFa=eI;F32
+!s100 aWUcXh0jdmmYWER<BWlKc3
+R8
+32
+R32
+!i10b 1
+R33
+Z78 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|C:/Users/Marco/Desktop/PROJETOMIPS/utilitarios/shifter.vhd|
+Z79 !s107 C:/Users/Marco/Desktop/PROJETOMIPS/utilitarios/shifter.vhd|
+!i113 1
+R13
+R14
+Aarch_shifter
+R1
+R75
+R2
+R3
+R4
+DEx4 work 7 shifter 0 22 CZn8cNCa?ijjbFa=eI;F32
+l17
+L15
+V^o[FFKhNC:L9@O5d19NR=0
+!s100 1IbBb4VH`WU[fM]2S5KKW2
+R8
+32
+R32
+!i10b 1
+R33
+R78
+R79
+!i113 1
+R13
+R14
+Esomador
+Z80 w1431895751
+R1
+R2
+R3
+R4
+R5
+Z81 8C:/Users/Marco/Desktop/PROJETOMIPS/SOMADOR/somador.vhd
+Z82 FC:/Users/Marco/Desktop/PROJETOMIPS/SOMADOR/somador.vhd
+l0
+L6
+VUNiG:N@Nh82FC<kjiImDk1
+!s100 h9Wef_iEeU`<jEB2>lb6O2
+R8
+32
+R32
+!i10b 1
+R33
+Z83 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|C:/Users/Marco/Desktop/PROJETOMIPS/SOMADOR/somador.vhd|
+Z84 !s107 C:/Users/Marco/Desktop/PROJETOMIPS/SOMADOR/somador.vhd|
+!i113 1
+R13
+R14
+Aarch_somador
+R1
+R2
+R3
+R4
+DEx4 work 7 somador 0 22 UNiG:N@Nh82FC<kjiImDk1
+l16
+L15
+V<FP0P<_h[d2Bf7VF6i_dh3
+!s100 jEY5YRk2jm6Qf9Vme3eEW3
+R8
+32
+R32
+!i10b 1
+R33
+R83
+R84
+!i113 1
+R13
+R14
+Eula
+Z85 w1431908598
+R1
+R2
+R3
+R4
+R5
+Z86 8C:/Users/Marco/Desktop/PROJETOMIPS/ULA/ULA.vhd
+Z87 FC:/Users/Marco/Desktop/PROJETOMIPS/ULA/ULA.vhd
+l0
+L6
+VYnU=k6zNaIgE=inoFFYUE3
+!s100 T1NhZ`27QCjalLel7o1oo0
+R8
+32
+R32
+!i10b 1
+R33
+Z88 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|C:/Users/Marco/Desktop/PROJETOMIPS/ULA/ULA.vhd|
+Z89 !s107 C:/Users/Marco/Desktop/PROJETOMIPS/ULA/ULA.vhd|
+!i113 1
+R13
+R14
+Aarch_ula
+R1
+R2
+R3
+R4
+DEx4 work 3 ula 0 22 YnU=k6zNaIgE=inoFFYUE3
+l17
+L15
+V>HKaPijQmjZI8bX:BScV13
+!s100 Qa@W17:O6<J^ATOzm:RVH2
+R8
+32
+R32
+!i10b 1
+R33
+R88
+R89
+!i113 1
+R13
+R14

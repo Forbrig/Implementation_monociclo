@@ -1,0 +1,131 @@
+C:/Users/Marco/Desktop/PROJETOMIPS/utilitarios/extender.vhd {1 {vcom -work work -2002 -explicit -stats=none C:/Users/Marco/Desktop/PROJETOMIPS/utilitarios/extender.vhd
+Model Technology ModelSim PE Student Edition vcom 10.4a Compiler 2015.03 Apr  7 2015
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Loading package std_logic_arith
+-- Loading package STD_LOGIC_UNSIGNED
+-- Compiling entity extender
+-- Compiling architecture arch_extender of extender
+
+} {} {}} C:/Users/Marco/Desktop/PROJETOMIPS/Registradores/PC.vhd {1 {vcom -work work -2002 -explicit -stats=none C:/Users/Marco/Desktop/PROJETOMIPS/Registradores/PC.vhd
+Model Technology ModelSim PE Student Edition vcom 10.4a Compiler 2015.03 Apr  7 2015
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Loading package std_logic_arith
+-- Loading package STD_LOGIC_UNSIGNED
+-- Compiling entity PC
+-- Compiling architecture arch_PC of PC
+
+} {} {}} C:/Users/Marco/Desktop/PROJETOMIPS/ULA/Controle_ULA.vhd {1 {vcom -work work -2002 -explicit -stats=none C:/Users/Marco/Desktop/PROJETOMIPS/ULA/Controle_ULA.vhd
+Model Technology ModelSim PE Student Edition vcom 10.4a Compiler 2015.03 Apr  7 2015
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Loading package std_logic_arith
+-- Loading package STD_LOGIC_UNSIGNED
+-- Compiling entity ControleULA
+-- Compiling architecture arch_ControleULA of ControleULA
+
+} {} {}} C:/Users/Marco/Desktop/PROJETOMIPS/Memória/MemData.vhd {1 {vcom -work work -2002 -explicit -stats=none C:/Users/Marco/Desktop/PROJETOMIPS/Memória/MemData.vhd
+Model Technology ModelSim PE Student Edition vcom 10.4a Compiler 2015.03 Apr  7 2015
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Loading package std_logic_arith
+-- Loading package STD_LOGIC_UNSIGNED
+-- Compiling entity DataMemory
+-- Compiling architecture arch_DataMemory of DataMemory
+
+} {} {}} C:/Users/Marco/Desktop/PROJETOMIPS/Memória/MemInstruction.vhd {1 {vcom -work work -2002 -explicit -stats=none C:/Users/Marco/Desktop/PROJETOMIPS/Memória/MemInstruction.vhd
+Model Technology ModelSim PE Student Edition vcom 10.4a Compiler 2015.03 Apr  7 2015
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Loading package std_logic_arith
+-- Loading package STD_LOGIC_UNSIGNED
+-- Compiling entity InstructionMemory
+-- Compiling architecture arch_InstructionMemory of InstructionMemory
+
+} {} {}} C:/Users/Marco/Desktop/PROJETOMIPS/controle/controle.vhd {1 {vcom -work work -2002 -explicit -stats=none C:/Users/Marco/Desktop/PROJETOMIPS/controle/controle.vhd
+Model Technology ModelSim PE Student Edition vcom 10.4a Compiler 2015.03 Apr  7 2015
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Loading package std_logic_arith
+-- Compiling entity controle
+-- Compiling architecture arch_controle of controle
+
+} {} {}} C:/Users/Marco/Desktop/PROJETOMIPS/ULA/ULA.vhd {1 {vcom -work work -2002 -explicit -stats=none C:/Users/Marco/Desktop/PROJETOMIPS/ULA/ULA.vhd
+Model Technology ModelSim PE Student Edition vcom 10.4a Compiler 2015.03 Apr  7 2015
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Loading package std_logic_arith
+-- Loading package STD_LOGIC_UNSIGNED
+-- Compiling entity ULA
+-- Compiling architecture arch_ULA of ULA
+
+} {} {}} C:/Users/Marco/Desktop/PROJETOMIPS/Registradores/B_Registradores.vhd {1 {vcom -work work -2002 -explicit -stats=none C:/Users/Marco/Desktop/PROJETOMIPS/Registradores/B_Registradores.vhd
+Model Technology ModelSim PE Student Edition vcom 10.4a Compiler 2015.03 Apr  7 2015
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Loading package std_logic_arith
+-- Loading package STD_LOGIC_UNSIGNED
+-- Compiling entity B_Registradores
+-- Compiling architecture arch_B_Registradores of B_Registradores
+
+} {} {}} C:/Users/Marco/Desktop/PROJETOMIPS/MUX2x1/MUX2x15bits.vhd {1 {vcom -work work -2002 -explicit -stats=none C:/Users/Marco/Desktop/PROJETOMIPS/MUX2x1/MUX2x15bits.vhd
+Model Technology ModelSim PE Student Edition vcom 10.4a Compiler 2015.03 Apr  7 2015
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Loading package std_logic_arith
+-- Loading package STD_LOGIC_UNSIGNED
+-- Compiling entity MUX2x15bits
+-- Compiling architecture arch_MUX2x15bits of MUX2x15bits
+
+} {} {}} C:/Users/Marco/Desktop/PROJETOMIPS/MUX2x1/MUX2x1.vhd {1 {vcom -work work -2002 -explicit -stats=none C:/Users/Marco/Desktop/PROJETOMIPS/MUX2x1/MUX2x1.vhd
+Model Technology ModelSim PE Student Edition vcom 10.4a Compiler 2015.03 Apr  7 2015
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Loading package std_logic_arith
+-- Loading package STD_LOGIC_UNSIGNED
+-- Compiling entity MUX2x1
+-- Compiling architecture arch_MUX2x1 of MUX2x1
+
+} {} {}} C:/Users/Marco/Desktop/PROJETOMIPS/SOMADOR/somador.vhd {1 {vcom -work work -2002 -explicit -stats=none C:/Users/Marco/Desktop/PROJETOMIPS/SOMADOR/somador.vhd
+Model Technology ModelSim PE Student Edition vcom 10.4a Compiler 2015.03 Apr  7 2015
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Loading package std_logic_arith
+-- Loading package STD_LOGIC_UNSIGNED
+-- Compiling entity somador
+-- Compiling architecture arch_somador of somador
+
+} {} {}} C:/Users/Marco/Desktop/PROJETOMIPS/processador.vhd {1 {vcom -work work -2002 -explicit -stats=none C:/Users/Marco/Desktop/PROJETOMIPS/processador.vhd
+Model Technology ModelSim PE Student Edition vcom 10.4a Compiler 2015.03 Apr  7 2015
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Loading package std_logic_arith
+-- Loading package STD_LOGIC_UNSIGNED
+-- Compiling entity Processador
+-- Compiling architecture arch_processador of processador
+
+} {} {}} C:/Users/Marco/Desktop/PROJETOMIPS/utilitarios/shifter.vhd {1 {vcom -work work -2002 -explicit -stats=none C:/Users/Marco/Desktop/PROJETOMIPS/utilitarios/shifter.vhd
+Model Technology ModelSim PE Student Edition vcom 10.4a Compiler 2015.03 Apr  7 2015
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Loading package std_logic_arith
+-- Loading package NUMERIC_STD
+-- Loading package STD_LOGIC_UNSIGNED
+-- Compiling entity shifter
+-- Compiling architecture arch_shifter of shifter
+
+} {} {}}
