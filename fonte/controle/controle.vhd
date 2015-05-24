@@ -104,7 +104,7 @@ begin
 			RegDst		<= 0; 
 			JAL			<= 0;
 		
-		elsif(instrucao = "001100")then --	slti
+		elsif(instrucao = "001010")then		-- SLTi
 			Jump		<= 0;
 			Branch		<= 0;
 			BNE			<= 0;
@@ -131,17 +131,17 @@ begin
 			JAL			<= 0;
 			
 		elsif(instrucao = "000011")then --	JAL
-			RegDst <= '0';
-			Branch <= '0';
-			MemtoReg <= '0';
-			RegWrite <= '1';
-			MemRead <= '0';
-			MemWrite <= '0';
-			ALUSrc <= '0';
-			ALUOP <= "00"; 
-			Jump <= '1';
-			BNE <= '0';
-			JAL <= '1';
+			Jump		<= 0;
+			Branch		<= 0;
+			BNE			<= 0;
+			MemRead		<= 0;
+			MemtoReg	<= 0;
+			ALUOP		<= "00";
+			MemWrite	<= 0;
+			ALUSrc		<= 0;
+			RegWrite	<= 1;
+			RegDst		<= 0; 
+			JAL			<= 1;
 
 		end if;
 		
