@@ -40,17 +40,17 @@ begin
 			JAL			<= 0;
 			
 		elsif(instrucao = "100011")then		-- LW		
-			RegDst <= '0';
-			Branch <= '0';
-			MemtoReg <= '1';
-			RegWrite <= '1';
-			MemRead <= '1';
-			MemWrite <= '0';
-			ALUSrc <= '1';
-			ALUOP <= "00";
-			Jump <= '0';
-			BNE <= '0';
-			JAL <= '0';
+			Jump		<= 0;
+			Branch		<= 0;
+			BNE			<= 0;
+			MemRead		<= 1;
+			MemtoReg	<= 0;
+			ALUOP		<= "00";
+			MemWrite	<= 0;
+			ALUSrc		<= 1;
+			RegWrite	<= 1;
+			RegDst		<= 0; 
+			JAL			<= 0;
 		
 		elsif(instrucao = "101011")then --	sw
 			RegDst <= '0';
