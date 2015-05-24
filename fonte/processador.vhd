@@ -161,7 +161,7 @@ architecture arch_processador of processador is
 	signal C_MemWrite: std_logic;
 	signal C_ALUSrc: std_logic;
 	signal C_RegWrite: std_logic;
-	signal C_Dst: std_logic;
+	signal C_RegDst: std_logic;
 	signal C_JAL: std_logic;
 
 	signal M_5bits: std_logic_vector(4 downto 0);
@@ -176,7 +176,7 @@ architecture arch_processador of processador is
 		U0: PC port map(PC_clk, PC_entrada, PC_out);
 		U1: InstructionMemory port map(IM_W_inst, PC_out, IM_N_inst, IM_saida);
 		U2: somador port map(PC_out, "00000000000000000000000000000100", S_saida);
-		U3: controle port map(IM_saida(31 downto 26), C_Jump, C_Branch, C_BNE, C_MemRead, C_MemtoReg, C_ALUOp, C_MemWrite, C_ALUSrc, C_RegWrite, C_Dst, C_JAL);
+		U3: controle port map(IM_saida(31 downto 26), C_Jump, C_Branch, C_BNE, C_MemRead, C_MemtoReg, C_ALUOp, C_MemWrite, C_ALUSrc, C_RegWrite, C_RegDst, C_JAL);
 		M_aux1 <= IM_saida(20 downto 16);
 		M_aux2 <= IM_saida(15 downto 11);
 		U4: MUX2x15bits port map(C_RegDst, M_aux1, M_aux2, M_5bits);
