@@ -125,18 +125,19 @@ architecture arch_processador of processador is
 
 	component controle is
 		port(
-			instrucao: in std_logic_vector(5 downto 0);
-			RegDst: out std_logic;
-			Branch: out std_logic;
-			MemtoReg: out std_logic;
-			RegWrite: out std_logic;
-			MemRead: out std_logic;
-			MemWrite: out std_logic;
-			ALUSrc: out std_logic;
-			ALUOP: out std_logic_vector(1 downto 0);
-			Jump: out std_logic;
-			BNE: out std_logic;
-			JAL: out std_logic
+			instrucao: 	in std_logic_vector(5 downto 0);
+			
+			Jump: 		out std_logic;
+			Branch: 	out std_logic;
+			BNE: 		out std_logic;
+			MemRead: 	out std_logic;
+			MemtoReg: 	out std_logic;
+			ALUOP: 		out std_logic_vector(1 downto 0);
+			MemWrite: 	out std_logic;
+			ALUSrc: 	out std_logic;
+			RegWrite: 	out std_logic;
+			RegDst: 	out std_logic;
+			JAL: 		out std_logic
 		);
 	end component;
 
@@ -151,17 +152,17 @@ architecture arch_processador of processador is
 
 	signal S_saida: std_logic_vector(31 downto 0);
 
-	signal C_RegDst: std_logic;
-	signal C_JP: std_logic;
+	signal C_Jump: std_logic;
 	signal C_Branch: std_logic;
+	signal C_BNE: std_logic;
 	signal C_MemRead: std_logic;
-	signal C_MemToReg: std_logic;
-	signal C_ULAOp: std_logic_vector(1 downto 0);
+	signal C_MemtoReg: std_logic;
+	signal C_ALUOp: std_logic_vector(1 downto 0);
 	signal C_MemWrite: std_logic;
-	signal C_ULASrc: std_logic;
+	signal C_ALUSrc: std_logic;
 	signal C_RegWrite: std_logic;
-	signal C_TypeBranch: std_logic;
-	signal C_JALOp: std_logic;
+	signal C_Dst: std_logic;
+	signal C_JAL: std_logic;
 
 	signal M_5bits: std_logic_vector(4 downto 0);
 	signal M_aux1: std_logic_vector(4 downto 0);
@@ -175,7 +176,7 @@ architecture arch_processador of processador is
 		U0: PC port map(PC_clk, PC_entrada, PC_out);
 		U1: InstructionMemory port map(IM_W_inst, PC_out, IM_N_inst, IM_saida);
 		U2: somador port map(PC_out, "00000000000000000000000000000100", S_saida);
-		U3: controle port map(IM_saida(31 downto 26), C_RegDst, C_Branch, C_MemToReg, C_RegWrite, C_MemRead, C_MemWrite, C_ULASrc, C_ULAOp, C_JP, C_TypeBranch, C_JALOp);
+		U3: controle port map(IM_saida(31 downto 26), C_Jump, C_Branch, C_BNE, C_MemRead, C_MemtoReg, C_ALUOp, C_MemWrite, C_ALUSrc, C_RegWrite, C_Dst, C_JAL);
 		M_aux1 <= IM_saida(20 downto 16);
 		M_aux2 <= IM_saida(15 downto 11);
 		U4: MUX2x15bits port map(C_RegDst, M_aux1, M_aux2, M_5bits);
