@@ -15,11 +15,12 @@ end entity;
 architecture arch_processador of processador is
 		-- PC --
 	component PC is
-		port(
-			clk: in std_logic;
-			In1: in std_logic_vector(31 downto 0);
-			saida: out std_logic_vector(31 downto 0)
-		);
+	port(
+		clk: in std_logic;
+		In1: in std_logic_vector(31 downto 0);
+		Reset: in std_logic;
+		saida: out std_logic_vector(31 downto 0)
+	);
 	end component;	
 
 		-- Data Memory --
@@ -36,8 +37,8 @@ architecture arch_processador of processador is
 		-- Instruction Memory --
 	component InstructionMemory is
     		port(	
-			W_Instruction: in std_logic_vector(31 downto 0);
-			instrucao_atual: in std_logic_vector(31 downto 0);
+			Address: in std_logic_vector(31 downto 0);
+			N_Address: in std_logic_vector(31 downto 0);
 			N_Instruction: in std_logic_vector(31 downto 0);
 			saida: out std_logic_vector(31 downto 0)
     		);
@@ -46,7 +47,6 @@ architecture arch_processador of processador is
 		-- B_Registradores --
 	component B_Registradores is
 		port(
-			clk: in std_logic;
 			RegWrite: in std_logic;
 			R_Register1: in std_logic_vector(4 downto 0);
 			R_Register2: in std_logic_vector(4 downto 0);
@@ -65,7 +65,7 @@ architecture arch_processador of processador is
 		);
 	end component;	
 
-		-- shifter --
+		-- shifter 32bits --
 	component shifter is
 		port(
 			In1: in std_logic_vector(31 downto 0);
@@ -73,6 +73,13 @@ architecture arch_processador of processador is
 		);
 	end component;	
 	
+	-- shifter 26bits--
+	component shifter26 is
+	port(
+		In1: in std_logic_vector(25 downto 0);
+		saida: out std_logic_vector(27 downto 0)
+	);
+	end component;	
 
 		-- MUX 2x1 --
 	component MUX2x1 is
@@ -84,7 +91,7 @@ architecture arch_processador of processador is
 		);
 	end component;
 
-
+		-- MUX de 15 bits --
 	component MUX2x15bits is
 		port(
 			controle: in std_logic;
@@ -109,11 +116,12 @@ architecture arch_processador of processador is
 		port(
 			OpCode: in std_logic_vector( 1 downto 0 );
 			funct: in std_logic_vector( 5 downto 0 );
-			opULA: out std_logic_vector( 2 downto 0 )
+			opULA: out std_logic_vector( 2 downto 0 );
+			jr: out std_logic
 		);
 	end component;
 
-	
+		-- SOMADOR --
 	component somador is
 		port(
 			In1: in std_logic_vector(31 downto 0);
@@ -122,7 +130,7 @@ architecture arch_processador of processador is
 		);
 	end component;
 
-
+		-- CONTROLE --
 	component controle is
 		port(
 			instrucao: 	in std_logic_vector(5 downto 0);
@@ -143,14 +151,15 @@ architecture arch_processador of processador is
 
 
 	signal PC_clk: std_logic;
+	signal PC_reset: std_logic;
 	signal PC_out: std_logic_vector(31 downto 0);
 	signal PC_entrada: std_logic_vector(31 downto 0);
 
-	signal IM_W_inst: std_logic_vector(31 downto 0);
+	signal IM_Address: std_logic_vector(31 downto 0);
 	signal IM_N_inst: std_logic_vector(31 downto 0);
 	signal IM_saida: std_logic_vector(31 downto 0);
 
-	signal S_saida: std_logic_vector(31 downto 0);
+	signal PCmais4: std_logic_vector(31 downto 0);
 
 	signal C_Jump: std_logic;
 	signal C_Branch: std_logic;
@@ -164,24 +173,119 @@ architecture arch_processador of processador is
 	signal C_RegDst: std_logic;
 	signal C_JAL: std_logic;
 
-	signal M_5bits: std_logic_vector(4 downto 0);
+	signal M_OUT5bits: std_logic_vector(4 downto 0);
 	signal M_aux1: std_logic_vector(4 downto 0);
 	signal M_aux2: std_logic_vector(4 downto 0);
+	signal M2_OUT5bits: std_logic_vector(4 downto 0);
+	signal M3_OUT: std_logic_vector(31 downto 0);
+	signal M4_OUT: std_logic_vector(31 downto 0);
+	signal M5_OUT: std_logic_vector(31 downto 0);
 
 	signal W_DATA: std_logic_vector(31 downto 0);
 	signal R_DATA1: std_logic_vector(31 downto 0);
 	signal R_DATA2: std_logic_vector(31 downto 0);
 
+	signal EX_signal: std_logic_vector(31 downto 0);
+	
+	signal AC_jr: std_logic;
+	signal AC_decod: std_logic_vector(2 downto 0);
+	
+	signal U_out: std_logic_vector(31 downto 0);
+	signal U_zero: std_logic;
+
+	signal DM_out: std_logic_vector(31 downto 0);
+	
+	-- Sai do Instruction Memory
+	signal SL1_out: std_logic_vector(31 downto 0);
+	signal AUX5: std_logic_vector(31 downto 0);
+	
+	-- Sai do extensor de sinal -- 
+	signal SL2_out: std_logic_vector(31 downto 0);
+	
+	signal Adder_out: std_logic_vector(31 downto 0);
+	
+	signal MUX_Sel: std_logic;
+	
+	signal MUX6_out: std_logic_vector(31 downto 0);
+	
+	signal MUX7_out: std_logic_vector(31 downto 0);
+	
 	begin
-		U0: PC port map(PC_clk, PC_entrada, PC_out);
-		U1: InstructionMemory port map(IM_W_inst, PC_out, IM_N_inst, IM_saida);
-		U2: somador port map(PC_out, "00000000000000000000000000000100", S_saida);
-		U3: controle port map(IM_saida(31 downto 26), C_Jump, C_Branch, C_BNE, C_MemRead, C_MemtoReg, C_ALUOp, C_MemWrite, C_ALUSrc, C_RegWrite, C_RegDst, C_JAL);
-		M_aux1 <= IM_saida(20 downto 16);
-		M_aux2 <= IM_saida(15 downto 11);
-		U4: MUX2x15bits port map(C_RegDst, M_aux1, M_aux2, M_5bits);
-		U5: B_Registradores port map(PC_clk, C_RegWrite, IM_saida(25 downto 21), IM_saida(20 downto 16), M_5bits, W_DATA, R_DATA1, R_DATA2);
+
+		-- processador para PC--
+ 		PC_clk <= clk;
+		PC_reset <= reset;
+		-- processador para Memory instruction--
+		IM_Address <= where;
+		IM_N_inst <= N_instruction;
 		
 
+		
+		-- PC --
+		U0: PC port map(PC_clk, PC_entrada, PC_reset, PC_out);
+		
+		-- ISTRUCTION MEMORY -
+		U1: InstructionMemory port map(PC_out, IM_Address, IM_N_inst, IM_saida);
+		
+		-- SOMADOR --
+		U2: somador port map(PC_out, "00000000000000000000000000000100", PCmais4);
+		
+		-- CONTROLE --
+		U3: controle port map(IM_saida(31 downto 26), C_Jump, C_Branch, C_BNE, C_MemRead, C_MemtoReg, C_ALUOp, C_MemWrite, C_ALUSrc, C_RegWrite, C_RegDst, C_JAL);
+		
+		-- ENTRADAS DO PRIMEIRO MUX --
+		M_aux1 <= IM_saida(20 downto 16);
+		M_aux2 <= IM_saida(15 downto 11);
+		
+		-- PRIMEIRO MUX --
+		U4: MUX2x15bits port map(C_RegDst, M_aux1, M_aux2, M_OUT5bits);
+		
+		-- SEGUNDO MUX --
+		U5: MUX2x15bits port map(C_JAL, M_OUT5bits, "11111", M2_OUT5bits);
+		
+		-- BANCO DE REGISTRADORES --
+		U6: B_Registradores port map(C_RegWrite, IM_saida(25 downto 21), IM_saida(20 downto 16), M2_OUT5bits, W_DATA, R_DATA1, R_DATA2);
+		
+		-- EXTENDER --
+		U7: extender port map(IM_saida(15 downto 0), EX_signal);
+
+		-- TERCEIRO MUX 2x1 (32 bits)
+		U8: MUX2x1 port map(C_ALUSrc, R_DATA2, EX_signal, M3_OUT);
+		
+		-- CONTROLE DA ULA --
+		U9: ControleULA port map(C_ALUOp, IM_saida(5 downto 0),AC_decod ,AC_jr);
+		
+		-- ULA --
+		U10: ULA port map(AC_decod, R_DATA1, M3_OUT, U_zero, U_out);
+		
+		-- DATA MEMORY --
+		U11: DataMemory port map(C_MemRead, C_MemWrite, U_out, R_DATA2, DM_out);
+		
+		-- QUARTO MUX --
+		U12: MUX2x1 port map(C_MemtoReg, DM_out, U_out, M4_OUT);
+		
+		-- QUINTO MUX --
+		U13: MUX2x1 port map(C_JAL, M4_OUT, PCmais4, W_DATA);
+		
+		-- PRIMEIRO SHIFTER --
+		AUX5 <= "000000" & IM_saida(25 downto 0);
+		U14: shifter port map(AUX5, SL1_out);
+		
+		-- SEGUNDO SHIFTER --
+		U15: shifter port map(EX_signal, SL2_out);
+		
+		-- SOMADOR 2 --
+		U16: somador port map(PCmais4, SL2_out, Adder_out);
+		
+		MUX_Sel <= ((not(U_zero) and C_BNE) or (U_zero and C_Branch));
+		
+		-- SEXTO MUX --
+		U17: MUX2x1 port map(MUX_Sel, PCmais4, Adder_out, MUX6_out);
+		
+		-- SETIMO MUX --
+		U18: MUX2x1 port map(C_Jump, MUX6_out, SL1_out, MUX7_out);
+		
+		-- OITAVO MUX --
+		U19: MUX2x1 port map(AC_jr, MUX7_out, R_DATA1, PC_entrada);
 
 end architecture;

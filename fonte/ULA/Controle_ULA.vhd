@@ -7,7 +7,8 @@ entity ControleULA is
 	port(
 		OpCode: in std_logic_vector( 1 downto 0 );
 		funct: in std_logic_vector( 5 downto 0 );
-		opULA: out std_logic_vector( 2 downto 0 )
+		opULA: out std_logic_vector( 2 downto 0 );
+		jr: out std_logic
 	);
 end entity;
 
@@ -18,13 +19,14 @@ begin
 
 	begin
 		if(OpCode = "00")then
-			opULA <= "010";
+			opULA <= "010";	-- LW, SW, ADDi
 			
 		elsif(OpCode = "01")then
 			opULA <= "110";--sub para fazer beq e bne
 		
 		elsif (OpCode = "10")then
 			opULA <= "111";--slti
+
 		else
 			if(funct(3 downto 0) = "0000")then
 				opULA <= "010";
@@ -43,5 +45,12 @@ begin
 			
 			end if;
 		end if;
+		
+		if(funct(3 downto 0) = "1000")then
+			jr <= '1';
+		else
+			jr <= '0';
+		end if;
+		
 	end process;
 end architecture;

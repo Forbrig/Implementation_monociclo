@@ -15,7 +15,10 @@ architecture arch_extender of extender is
 begin
 	process(In1)
 	begin
-		saida <= "0000000000000000" & In1; 
-		
+		if(In1(15) = '0')then
+			saida <= "0000000000000000" & In1; 
+		elsif(In1(15) = '1')then
+			saida <= "1111111111111111" & In1;
+		end if;
 	end process;
 end architecture;

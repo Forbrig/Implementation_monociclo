@@ -18,7 +18,7 @@ architecture arch_DataMemory of DataMemory is
 	signal memory: memoria;   
 
 	begin
-		process(MemRead)
+		process(MemRead, MemWrite)
 		begin
     
 			if(MemRead = '1')then
@@ -28,10 +28,7 @@ architecture arch_DataMemory of DataMemory is
 			   saida1(31 downto 24) <= memory(conv_integer(where) + 3);
 			end if;
 			
-		end process;
-
-		process(MemWrite)
-		begin
+		
 			if(MemWrite = '1')then
 			   memory(conv_integer(where))     <= Data(7 downto 0);
 			   memory(conv_integer(where) + 1) <= Data(15 downto 8);

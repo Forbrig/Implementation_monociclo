@@ -32,7 +32,7 @@ begin
 			BNE		<= '0';
 			MemRead		<= '0';
 			MemtoReg	<= '1';
-			ALUOP		<= "10";
+			ALUOP		<= "11";
 			MemWrite	<= '0';
 			ALUSrc		<= '0';
 			RegWrite	<= '1';
@@ -59,7 +59,7 @@ begin
 			MemRead		<= '0';
 			MemtoReg	<= '0';
 			ALUOP		<= "00";
-			MemWrite	<= '0';
+			MemWrite	<= '1';
 			ALUSrc		<= '1';
 			RegWrite	<= '0';
 			RegDst		<= '0'; 
@@ -69,7 +69,7 @@ begin
 			Jump		<= '0';
 			Branch		<= '1';
 			BNE		<= '0';
-			MemRead		<= '0';
+			MemRead		<= '1';
 			MemtoReg	<= '0';
 			ALUOP		<= "01";
 			MemWrite	<= '0';
@@ -97,9 +97,9 @@ begin
 			BNE		<= '0';
 			MemRead		<= '0';
 			MemtoReg	<= '1';
-			ALUOP		<= "10";
+			ALUOP		<= "00";
 			MemWrite	<= '0';
-			ALUSrc		<= '0';
+			ALUSrc		<= '1';
 			RegWrite	<= '1';
 			RegDst		<= '0'; 
 			JAL		<= '0';

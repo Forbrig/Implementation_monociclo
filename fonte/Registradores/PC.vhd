@@ -15,7 +15,7 @@ end entity;
 	
 architecture arch_PC of PC is
 begin
-	process(In1, clk, Reset)
+	process(clk, Reset)
 	begin
 	
 		if(Reset = '1')then
