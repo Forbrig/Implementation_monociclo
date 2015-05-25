@@ -31,59 +31,106 @@ begin
 		-- Comeca zerando e colocando a primeira instrucao --
 		clkPC 			<= '0';
 		reset 			<= '0';
-		newInstruction 	<= "00100000000010000000000000000101";
-		wait for 5 ns;
-		
-		-- escreve as instrucoes na memoria de instrucao --
 
-		-- ADDi $8, $0, 5
-		address 		<= "00000000000000000000000000000000";
+		--n-esimo termo da sequencia de fibonacci.
+		--deve ser colocado aqui no lugar do 8.
+		--OP: addi $8, $0, 8
+		newInstruction <= x"20080008";
+		wait for 5 ns;
+		address <= x"00000000";--instrucao de endereco 0.
 		wait for 5 ns;
 		
-		-- SW $8, 0($0)
-		newInstruction 	<= "10101100000010000000000000000000";
+		
+		--OP: add $9, $0, $0 
+		newInstruction <= x"00004820";
 		wait for 5 ns;
-		address 		<= "00000000000000000000000000000100";
+		address <= x"00000004";--instrucao de endereco 4.
 		wait for 5 ns;
 		
-		-- LW $16, 0($0)
-		newInstruction 	<= "10001100000100000000000000000000";
-		wait for 5 ns;
-		address 		<= "00000000000000000000000000001000";
-		wait for 10 ns;
-		
-		-- ADDi $8, $8, 2
-		newInstruction 	<= "00100001000010000000000000000010";
-		wait for 5 ns;
-		address 		<= "00000000000000000000000000001100";
-		wait for 10 ns;
 
+		--OP: addi $10, $0, 1
+		newInstruction <= x"200a0001";
+		wait for 5 ns;		
+		address <= x"00000008";--instrucao de endereco 8.
+		wait for 5 ns;		
+		
 
-		-- Comeca --
-		-- Primeira instrucao --
-		reset 		<= '1';
+		--OP: beq $8, $0, 24 [quebra-0x00000024] rótolo loop esta aqui [0000000c]
+		newInstruction <= x"11000006";
 		wait for 5 ns;
-		reset 		<= '0';
-		wait for 5 ns;
-		
-		-- Segunda instrucao --
-		clkPC <= '1';
-		wait for 5 ns;
-		clkPC <= '0';
+		address <= x"0000000c";--instrucao de endereco 12.
 		wait for 5 ns;
 		
-		-- Terceira instrucao --
-		clkPC <= '1';
+
+		--OP: add $11, $9, $10
+		newInstruction <= x"012a5820";
 		wait for 5 ns;
-		clkPC <= '0';
+		address <= x"00000010";--instrucao de endereco 16.
 		wait for 5 ns;
 		
-		-- Quarta instrucao --
-		clkPC <= '1';
+
+		--OP:add $9, $0, $10
+		newInstruction <= x"000a4820";
 		wait for 5 ns;
-		clkPC <= '0';
+		address <= x"00000014";--instrucao de endereco 20.
+		wait for 5 ns;
+		
+
+		--OP: add $10, $0, $11
+		newInstruction <= x"000b5020";
+		wait for 5 ns;
+		address <= x"00000018";--instrucao de endereco 24.
 		wait for 5 ns;
 
+		--OP: addi $8, $8, -1 
+		newInstruction <= x"2108ffff";
+		wait for 5 ns;
+		address <= x"0000001c";--instrucao de endereco 28.
+		wait for 5 ns;
+		
+
+		--OP: j 0x000000003 [loop]
+		newInstruction <= x"08000003";
+		wait for 5 ns;
+		address <= x"00000020";--instrucao de endereco 32.
+		wait for 5 ns;
+		
+
+		--OP: rotolo quebra esta aqui
+		newInstruction <= x"00000000";
+		wait for 5 ns;
+		address <= x"00000024";--instrucao de endereco 36.
+		wait for 5 ns;
+		
+
+		--OP: ?
+		newInstruction <= x"00000000";
+		wait for 5 ns;
+		address <= x"00000028";--instrucao de endereco 40.
+		wait for 5 ns;
+		
+
+		--OP: ?
+		newInstruction <= x"00000000";
+		wait for 5 ns;
+		address <= x"0000002c";--instrucao de endereco 44.
+		wait for 5 ns;
+		
+
+		reset <= '0';
+		wait for 5 ns;
+		reset <= '1';
+		wait for 5 ns;
+		reset <= '0';
+
+		wait for 1 ns;
+		for i in 0 to 200 loop
+		
+			clkPC <= '0';
+			wait for 5 ns;
+			clkPC <= '1';
+			wait for 5 ns;
+		end loop;
 		
 
 		wait;

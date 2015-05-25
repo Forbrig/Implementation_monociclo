@@ -12,7 +12,7 @@ entity Processador is
 		WDATA_out: out std_logic_vector(31 downto 0);
 		SaidaUla: out std_logic_vector(31 downto 0);
 		SaidaBR2: out std_logic_vector(31 downto 0)
-		
+				
 	);
 end entity;
 

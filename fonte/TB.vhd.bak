@@ -53,7 +53,7 @@ begin
 		wait for 10 ns;
 		
 		-- ADDi $14, $14, 2
-		newInstruction 	<= "00100001000010000000000000000010";
+		newInstruction 	<= "00100001110011100000000000000010";
 		wait for 5 ns;
 		address 		<= "00000000000000000000000000001100";
 		wait for 10 ns;
