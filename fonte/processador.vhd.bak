@@ -8,7 +8,11 @@ entity Processador is
 		clk: in std_logic;
 		reset: in std_logic;
 		N_instruction: in std_logic_vector(31 downto 0);
-		where: in std_logic_vector(31 downto 0)
+		where: in std_logic_vector(31 downto 0);
+		WDATA_out: out std_logic_vector(31 downto 0);
+		SaidaUla: out std_logic_vector(31 downto 0);
+		SaidaBR2: out std_logic_vector(31 downto 0)
+		
 	);
 end entity;
 
@@ -30,7 +34,8 @@ architecture arch_processador of processador is
 			MemWrite: in std_logic;
 			where: in std_logic_vector(31 downto 0);
 			Data: in std_logic_vector(31 downto 0);
-			saida1: out std_logic_vector(31 downto 0)
+			saida1: out std_logic_vector(31 downto 0);
+			clk: in std_logic
 		);
 	end component;
 	
@@ -53,7 +58,8 @@ architecture arch_processador of processador is
 			W_Register: in std_logic_vector(4 downto 0);
 			W_Data: in std_logic_vector(31 downto 0);
 			R_Data1: out std_logic_vector(31 downto 0);
-			R_Data2: out std_logic_vector(31 downto 0)
+			R_Data2: out std_logic_vector(31 downto 0);
+			clk: in std_logic
 		);	
 	end component;
 
@@ -194,6 +200,8 @@ architecture arch_processador of processador is
 	signal U_zero: std_logic;
 
 	signal DM_out: std_logic_vector(31 downto 0);
+
+	signal DMMM_out: std_logic_vector(31 downto 0);
 	
 	-- Sai do Instruction Memory
 	signal SL1_out: std_logic_vector(31 downto 0);
@@ -244,8 +252,9 @@ architecture arch_processador of processador is
 		U5: MUX2x15bits port map(C_JAL, M_OUT5bits, "11111", M2_OUT5bits);
 		
 		-- BANCO DE REGISTRADORES --
-		U6: B_Registradores port map(C_RegWrite, IM_saida(25 downto 21), IM_saida(20 downto 16), M2_OUT5bits, W_DATA, R_DATA1, R_DATA2);
-		
+		U6: B_Registradores port map(C_RegWrite, IM_saida(25 downto 21), IM_saida(20 downto 16), M2_OUT5bits, W_DATA, R_DATA1, R_DATA2, PC_clk);
+		SaidaBR2 <= R_DATA2;
+
 		-- EXTENDER --
 		U7: extender port map(IM_saida(15 downto 0), EX_signal);
 
@@ -257,15 +266,20 @@ architecture arch_processador of processador is
 		
 		-- ULA --
 		U10: ULA port map(AC_decod, R_DATA1, M3_OUT, U_zero, U_out);
-		
+		SaidaUla <= U_out;
+
+
+
+
 		-- DATA MEMORY --
-		U11: DataMemory port map(C_MemRead, C_MemWrite, U_out, R_DATA2, DM_out);
+		U11: DataMemory port map(C_MemRead, C_MemWrite, U_out, R_DATA2, DMMM_out, PC_clk);
 		
 		-- QUARTO MUX --
-		U12: MUX2x1 port map(C_MemtoReg, DM_out, U_out, M4_OUT);
+		U12: MUX2x1 port map(C_MemtoReg, DMMM_out, U_out, M4_OUT);
 		
 		-- QUINTO MUX --
 		U13: MUX2x1 port map(C_JAL, M4_OUT, PCmais4, W_DATA);
+		WDATA_out <= W_DATA;
 		
 		-- PRIMEIRO SHIFTER --
 		AUX5 <= "000000" & IM_saida(25 downto 0);
@@ -280,7 +294,7 @@ architecture arch_processador of processador is
 		MUX_Sel <= ((not(U_zero) and C_BNE) or (U_zero and C_Branch));
 		
 		-- SEXTO MUX --
-		U17: MUX2x1 port map(MUX_Sel, Adder_out, PCmais4, MUX6_out);
+		U17: MUX2x1 port map(MUX_Sel, PCmais4, Adder_out, MUX6_out);
 		
 		-- SETIMO MUX --
 		U18: MUX2x1 port map(C_Jump, MUX6_out, SL1_out, MUX7_out);

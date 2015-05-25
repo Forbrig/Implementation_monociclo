@@ -11,7 +11,8 @@ entity B_Registradores is
 		W_Register: in std_logic_vector(4 downto 0);
 		W_Data: in std_logic_vector(31 downto 0);
 		R_Data1: out std_logic_vector(31 downto 0);
-		R_Data2: out std_logic_vector(31 downto 0)
+		R_Data2: out std_logic_vector(31 downto 0);
+		clk: in std_logic
 	);
 end entity;	
 	
@@ -22,9 +23,9 @@ type Matriz_Register is array(31 downto 0) of std_logic_vector(31 downto 0);
 signal B_Register: Matriz_Register;
 
 begin
-	process(RegWrite, R_Register1, R_Register2, W_Register, W_Data)
+	process(RegWrite, R_Register1, R_Register2, W_Register, W_Data, clk)
 	begin
-		if(RegWrite = '1')then
+		if(RegWrite = '1' and clk'event and clk = '1')then
 		
 			B_Register(conv_integer(W_Register)) <= W_Data;
 			B_Register(0) <= "00000000000000000000000000000000"; -- Mesmo mandando escrever no registrador zero, ele sempre receberá 0;

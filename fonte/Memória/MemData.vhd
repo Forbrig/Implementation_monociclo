@@ -9,7 +9,8 @@ entity DataMemory is
 		MemWrite: in std_logic;
 		where: in std_logic_vector(31 downto 0);
 		Data: in std_logic_vector(31 downto 0);
-		saida1: out std_logic_vector(31 downto 0)
+		saida1: out std_logic_vector(31 downto 0);
+		clk: in std_logic	
 	);
 end entity;
 
@@ -18,10 +19,10 @@ architecture arch_DataMemory of DataMemory is
 	signal memory: memoria;   
 
 	begin
-		process(MemRead, MemWrite)
+		process(MemRead, MemWrite, clk)
 		begin
     
-			if(MemRead = '1')then
+			if(MemRead = '1' and clk'event and clk = '0')then
 			   saida1(7 downto 0)   <= memory(conv_integer(where));
 			   saida1(15 downto 8)  <= memory(conv_integer(where) + 1);
 			   saida1(23 downto 16) <= memory(conv_integer(where) + 2);
@@ -29,7 +30,7 @@ architecture arch_DataMemory of DataMemory is
 			end if;
 			
 		
-			if(MemWrite = '1')then
+			if(MemWrite = '1' and clk'event and clk = '0')then
 			   memory(conv_integer(where))     <= Data(7 downto 0);
 			   memory(conv_integer(where) + 1) <= Data(15 downto 8);
 			   memory(conv_integer(where) + 2) <= Data(23 downto 16);
