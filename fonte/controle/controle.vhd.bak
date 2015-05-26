@@ -110,7 +110,7 @@ begin
 			BNE		<= '0';
 			MemRead		<= '0';
 			MemtoReg	<= '1';
-			ALUOP		<= "11";
+			ALUOP		<= "10";
 			MemWrite	<= '0';
 			ALUSrc		<= '1';
 			RegWrite	<= '1';

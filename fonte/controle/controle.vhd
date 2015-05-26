@@ -131,7 +131,7 @@ begin
 			JAL		<= '0';
 			
 		elsif(instrucao = "000011")then --	JAL
-			Jump		<= '0';
+			Jump		<= '1';
 			Branch		<= '0';
 			BNE		<= '0';
 			MemRead		<= '0';

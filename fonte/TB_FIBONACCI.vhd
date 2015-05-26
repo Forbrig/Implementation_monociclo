@@ -34,7 +34,7 @@ begin
 		
 
 
-		newInstruction 		<= "00001100000000000000000001010000";
+		newInstruction 		<= "00100000000010000000000000000111";
 		wait for 5 ns;
 		address 		<= "00000000000000000000000000000000";--instrucao de endereco 0.
 		wait for 5 ns;
@@ -48,67 +48,66 @@ begin
 		
 
 		--OP: addi $10, $0, 1
-		newInstruction 		<= "00000001010010010100000000100010";
+		newInstruction 		<= "00100000000010100000000000000001";
 		wait for 5 ns;		
 		address 		<= "00000000000000000000000000001000";--instrucao de endereco 8.
 		wait for 5 ns;		
 		
 
 		--OP: beq $8, $0, 24 [quebra-0x00000024] rótolo loop esta aqui [0000000c]
-		newInstruction 		<= "10101101010010000000000000000000";
+		newInstruction 		<= "00010001000000000000000000000110";
 		wait for 5 ns;
 		address 		<= "00000000000000000000000000001100";--instrucao de endereco 12.
 		wait for 5 ns;
 		
 
 		--OP: add $11, $9, $10
-		newInstruction 		<= "10001101010001110000000000000000";
+		newInstruction 		<= "00000001001010100101100000100000";
 		wait for 5 ns;
 		address 		<= "00000000000000000000000000010000";--instrucao de endereco 16.
 		wait for 5 ns;
 		
 
 		--OP:add $9, $0, $10
-		newInstruction 		<= "00000000000001110010100000101010";
+		newInstruction 		<= "00000000000010100100100000100000";
 		wait for 5 ns;
 		address 		<= "00000000000000000000000000010100";--instrucao de endereco 20.
 		wait for 5 ns;
-
 		
 
-
-		
-		newInstruction 		<= "00010001010001110000000000000011";
+		--OP: add $10, $0, $11
+		newInstruction 		<= "00000000000010110101000000100000";
 		wait for 5 ns;
 		address 		<= "00000000000000000000000000011000";--instrucao de endereco 24.
 		wait for 5 ns;
-		
 
-		--OP: add $11, $9, $10
-		newInstruction 		<= "00010101010001110000000000000111";
+		--OP: addi $8, $8, -1 
+		newInstruction 		<= "00100001000010001111111111111111";
 		wait for 5 ns;
 		address 		<= "00000000000000000000000000011100";--instrucao de endereco 28.
 		wait for 5 ns;
 		
 
-		--OP:add $9, $0, $10
-		newInstruction 		<= "00101000111001000000000000000101";
+		--OP: j 0x000000003 [loop]
+		newInstruction 		<= "00001000000000000000000000000011";
 		wait for 5 ns;
 		address 		<= "00000000000000000000000000100000";--instrucao de endereco 32.
 		wait for 5 ns;
+		
 
-
-		--OP:jr $3 | 
-		newInstruction 		<= "00100000000110100000000000011100";
+		--OP: rotolo quebra esta aqui
+		newInstruction 		<= "00000000000000000000000000000000";
 		wait for 5 ns;
-		address 		<= "00000000000000000000000000101000";--instrucao de endereco 40.
+		address 		<= "00000000000000000000000000100100";--instrucao de endereco 36.
 		wait for 5 ns;
 		
 
-		newInstruction 		<= "00000011010000000000000000001000";
+		--OP: ?
+		newInstruction 		<= "00000000000000000000000000000000";
 		wait for 5 ns;
-		address 		<= "00000000000000000000000000101100";--instrucao de endereco 44.
+		address 		<= "00000000000000000000000000101000";--instrucao de endereco 40.
 		wait for 5 ns;
+
 
 
 
