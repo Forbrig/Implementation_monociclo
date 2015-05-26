@@ -14,9 +14,5 @@ end entity;
 	
 architecture arch_somador of somador is
 begin
-	process(In1, In2)
-	begin
-		saida <= In1 + In2;
-
-	end process;
+	saida <= In1 + In2;
 end architecture;

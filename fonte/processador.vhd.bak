@@ -12,7 +12,7 @@ entity Processador is
 		WDATA_out: out std_logic_vector(31 downto 0);
 		SaidaUla: out std_logic_vector(31 downto 0);
 		SaidaBR2: out std_logic_vector(31 downto 0)
-		
+				
 	);
 end entity;
 
@@ -286,7 +286,7 @@ architecture arch_processador of processador is
 		U14: shifter port map(AUX5, SL1_out);
 		
 		-- SEGUNDO SHIFTER --
-		U15: shifter port map(EX_signal, SL2_out);
+		U15: shifter22 port map(EX_signal, SL2_out);
 		
 		-- SOMADOR 2 --
 		U16: somador port map(PCmais4, SL2_out, Adder_out);

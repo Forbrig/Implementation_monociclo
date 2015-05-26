@@ -14,16 +14,15 @@ end entity;
 	
 	
 architecture arch_PC of PC is
+signal valor: std_logic_vector(31 downto 0);
 begin
-	process(clk, Reset)
+	process(clk, reset)
 	begin
-	
-		if(Reset = '1')then
-			saida <= "00000000000000000000000000000000";
-		elsif(Reset = '0')then
-			if(clk'event and clk = '1')then
-				saida <= In1;
-			end if;
+		if(reset = '1')then
+			valor <= "00000000000000000000000000000000";
+		elsif( clk'event and clk = '1' ) then
+			valor <= In1;
 		end if;
 	end process;
+	saida <= valor;
 end architecture;

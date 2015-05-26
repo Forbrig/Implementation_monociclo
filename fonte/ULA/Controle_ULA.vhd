@@ -18,6 +18,7 @@ begin
 	process(OpCode, funct)
 
 	begin
+		jr <= '0';
 		if(OpCode = "00")then
 			opULA <= "010";	-- LW, SW, ADDi
 			
@@ -42,14 +43,10 @@ begin
 			
 			elsif(funct(3 downto 0) = "1010")then
 				opULA <= "111";
-			
+
+			elsif(funct(3 downto 0) = "1000")then
+				jr <= '1';			
 			end if;
-		end if;
-		
-		if(funct(3 downto 0) = "1000")then
-			jr <= '1';
-		else
-			jr <= '0';
 		end if;
 		
 	end process;
